@@ -1,0 +1,23 @@
+{
+  "name": "qa-pruebatecnica",
+  "version": "1.0.0",
+  "description": "Realizacion de prueba tecnica - QA",
+  "main": "index.js",
+  "scripts": {
+    "test": "testing",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DianaOviedo4/QA_PruebaTecnica.git"
+  },
+  "author": "Diana Marcela Oviedo Murillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DianaOviedo4/QA_PruebaTecnica/issues"
+  },
+  "homepage": "https://github.com/DianaOviedo4/QA_PruebaTecnica#readme",
+  "devDependencies": {
+    "cypress": "^12.15.0"
+  }
+}
