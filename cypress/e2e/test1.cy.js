@@ -33,17 +33,49 @@ describe('Seleccionar vuelos economicos', () => { //grupo de test
     cy.get('#vuelos-ida > div > div > div.row.row-eq-height.align-items-center').click({ multiple: true })
     //Seleccionar vuelo regreso más económico
     cy.get('#vuelos-regreso > div:nth-child(1) > div > div.row.row-eq-height.align-items-center').click({ force: true })
-    /* dar click en las cards */
+    //Dar click en las cards
     cy.get('#vuelos-ida > div > div > div:nth-child(2) > div > div > div:nth-child(1)').click({ force: true })
-    cy.wait(4000)
+    cy.wait(7000)
     cy.get('#vuelos-regreso > div.ng-star-inserted.container-selected > div > div:nth-child(2) > div > div > div:nth-child(1)').click({ force: true })
-    /* BOTON DE CONTINUAR */
+    //Click en botón "Continuar"
     cy.get('.continue .btn-continuar').click({ force: true })
 
-    //// COMPLETAR INFORMACIÓN DE VIAJEROS
-    cy.wait(4000)
+
+    //// COMPLETAR INFORMACIÓN DE VIAJEROS////
+    // VIAJERO 1 //
+    cy.wait(7000)
+    // Ingresar nombres
     cy.get('#name-1-1').type('Diana Marcela')
+    // Ingresar apellidos
     cy.get('#lastname-1-1').type('Oviedo Murillo')
-    cy.get('#sex-input-1-1')
+    // Seleccionar género
+    cy.get('#sex-input-1-1').select('Femenino').should('have.value', 'F')
+    // Seleccionar fecha de nacimiento (año-mes-dia)
+    cy.get('form#1-birthday-0 > select[name="year"]').select('2000', { force: true }).should('have.value', '2000')
+    cy.get('form#1-birthday-0 > select[name="month"]').select('Mar', { force: true }).should('have.value', '2')
+    cy.get('form#1-birthday-0 > select[name="day"]').select('22', { force: true }).should('have.value', '22')
+    // Ingresar correo electrónico
+    cy.get('#email-1-1').type('dianamarcelaoviedo76@gmail.com')
+    // Ingresar confirmación de correo electrónico
+    cy.get('#email-confirm-1-1').type('dianamarcelaoviedo76@gmail.com')
+    // Ingresar el teléfono
+    cy.get('#phone-1-1').type('3117679007', { force: true })
+    // Ingresar número de documento
+    cy.get('#numero-1-1').type('1198776522')
+
+    // VIAJERO 2 //
+    // Ingresar nombres
+    cy.get('#name-1-2').type('Juan Sebastian')
+    // Ingresar apellidos
+    cy.get('#lastname-1-2').type('Ortiz Perez')
+    // Seleccionar género
+    cy.get('#sex-input-1-2').select('Masculino').should('have.value', 'M')
+    // Seleccionar fecha de nacimiento (año-mes-dia)
+    cy.get('form#1-birthday-1 > select[name="year"]').select('1998', { force: true }).should('have.value', '1998')
+    cy.get('form#1-birthday-1 > select[name="month"]').select('Dic', { force: true }).should('have.value', '11')
+    cy.get('form#1-birthday-1 > select[name="day"]').select('15', { force: true }).should('have.value', '15')
+    // Ingresar número de documento
+    cy.get('#numero-1-2').type('318796633')
+
   })
 })
