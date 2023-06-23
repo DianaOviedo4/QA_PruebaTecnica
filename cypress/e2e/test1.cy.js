@@ -30,8 +30,8 @@ describe('Seleccionar vuelos economicos', () => { //grupo de test
 
 
     //Seleccionar vuelo ida más económico
-    cy.get('#vuelos-ida > div > div > div.row.row-eq-height.align-items-center').click({ multiple: true })
-    cy.wait(7000)
+    //cy.get('#vuelos-ida > div > div > div.row.row-eq-height.align-items-center').click({ multiple: true })
+    // Se comenta la línea anterior debido a que para las fechas seleccionadas, sólo aparece 1 vuelo de ida y por defecto está seleccionado.
     //Seleccionar vuelo regreso más económico
     cy.get('#vuelos-regreso > div:nth-child(1) > div > div.row.row-eq-height.align-items-center').click({ force: true })
     //Dar click en las cards
