@@ -6,12 +6,12 @@ describe('Seleccionar vuelos economicos', () => { //grupo de test
     //cy.wait(3000) // cy esperará 3 segundos para mostrar la página.
     cy.visit('/') // Cargar la página base.
     cy.get('.input-origen > .select-drop > .info-airport > .select > .styledSelectOrigen').click({ force: true })
-    cy.wait(7000)
+    cy.wait(8000)
     cy.get('.optionsOrigen > li[data-cod="BOG"]').click()
     cy.get('.optionsDestino > li[data-cod="CLO"]').click()
-    cy.wait(7000)
+    cy.wait(8000)
     //Seleccionar día de ida 
-    cy.get('.input-ida > .cont-calendar > .cont-months > .date-picker-wrapper > :nth-child(1) > :nth-child(1) > .month-wrapper > .month1 > tbody > :nth-child(4) > :nth-child(5)').click({ force: true })
+    cy.get('.input-ida > .cont-calendar > .cont-months > .date-picker-wrapper > :nth-child(1) > :nth-child(1) > .month-wrapper > .month1 > tbody > :nth-child(4) > :nth-child(7)').click({ force: true })
     //Seleccionar día de regreso 
     cy.get('.input-regreso > .cont-calendar > .cont-months > .date-picker-wrapper > :nth-child(1) > :nth-child(1) > .month-wrapper > .month2 > tbody > :nth-child(4) > :nth-child(6)').click({ force: true })
     //Seleccionar cantidad de pasajeros
@@ -25,15 +25,17 @@ describe('Seleccionar vuelos economicos', () => { //grupo de test
 
   it('Seleccionar vuelos baratos ida y regreso', () => {
     //cy.origin('https://booking.wingo.com/es/search/BOG/CLO/2023-06-23/2023-07-22/2/0/0/0/COP/0/0', () => {
-    cy.visit('http://booking.wingo.com/es/search/BOG/CLO/2023-06-23/2023-07-22/2/0/0/0/COP/0/0')
-    cy.wait(7000)
+    cy.visit('https://booking.wingo.com/es/search/BOG/CLO/2023-06-25/2023-07-22/2/0/0/0/COP/0/0')
+    cy.wait(9000)
 
 
     //Seleccionar vuelo ida más económico
     cy.get('#vuelos-ida > div > div > div.row.row-eq-height.align-items-center').click({ multiple: true })
+    cy.wait(7000)
     //Seleccionar vuelo regreso más económico
     cy.get('#vuelos-regreso > div:nth-child(1) > div > div.row.row-eq-height.align-items-center').click({ force: true })
     //Dar click en las cards
+    cy.wait(7000)
     cy.get('#vuelos-ida > div > div > div:nth-child(2) > div > div > div:nth-child(1)').click({ force: true })
     cy.wait(7000)
     cy.get('#vuelos-regreso > div.ng-star-inserted.container-selected > div > div:nth-child(2) > div > div > div:nth-child(1)').click({ force: true })
